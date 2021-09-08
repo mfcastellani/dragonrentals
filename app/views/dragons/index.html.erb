@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dragons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Birth date</th>
+      <th>Color</th>
+      <th>Characteristics</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dragons.each do |dragon| %>
+      <tr>
+        <td><%= dragon.name %></td>
+        <td><%= dragon.birth_date %></td>
+        <td><%= dragon.color %></td>
+        <td><%= dragon.characteristics %></td>
+        <td><%= link_to 'Show', dragon %></td>
+        <td><%= link_to 'Edit', edit_dragon_path(dragon) %></td>
+        <td><%= link_to 'Destroy', dragon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dragon', new_dragon_path %>

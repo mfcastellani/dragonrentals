@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :dragons
   resources :posts
   root to: 'pages#home'
   get 'pages/home'
