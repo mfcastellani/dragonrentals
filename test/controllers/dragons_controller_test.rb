@@ -2,7 +2,7 @@ require "test_helper"
 
 class DragonsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @post = posts(:one)
+    @dragon = dragons(:one)
   end
 
   test "should get new" do
@@ -15,6 +15,6 @@ class DragonsControllerTest < ActionDispatch::IntegrationTest
       post dragons_url, params: { dragon: { name: @dragon.name, birth_date: @dragon.birth_date, color: @dragon.color, characteristics: @dragon.characteristics } }
     end
         
-    assert_redirected_to dragons_url(Dragon.last)
+    assert_redirected_to dragon_url(Dragon.last)
   end
 end
