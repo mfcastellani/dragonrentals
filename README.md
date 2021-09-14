@@ -21,7 +21,7 @@ $ bundle install
 ```
 $ rake db:create
 ```
-#### Database Inicialization 
+#### Database Initialization 
 
 #### Running Test Suite
 
