@@ -25,17 +25,9 @@ class DragonsControllerTest < ActionDispatch::IntegrationTest
       assert_redirected_to dragon_path(@dragon)
 
       @dragon.reload
+      
       assert_equal "updated", @dragon.name, @dragon.birth_date
   end
-
-  #test "should update dragon" do
-  #  assert_changes :@dragon, from: nil, to: :foo do
-  #    @dragon = :foo
-  #  end
-        
-  #  assert_redirected_to dragons_url
-  #end
-
 
   test "should destroy dragon" do
     assert_difference('Dragon.count', -1) do
