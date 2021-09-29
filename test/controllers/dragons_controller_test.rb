@@ -20,13 +20,13 @@ class DragonsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update dragon" do
-      patch dragon_url(@dragon), params: { dragon: { name: "updated", birth_date: "updated", color: "updated", characteristics: "updated" } }
+      patch dragon_url(@dragon), params: { dragon: {  birth_date: Date.new(2021-9-29) } }
       
       assert_redirected_to dragon_path(@dragon)
 
       @dragon.reload
       
-      assert_equal "updated", @dragon.name, @dragon.birth_date
+      assert_equal Date.new(2021-9-29), @dragon.birth_date
   end
 
   test "should destroy dragon" do
