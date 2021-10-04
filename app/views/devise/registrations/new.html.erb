@@ -10,10 +10,12 @@
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
     <%= f.input :password,
+                label: 'Senha:',
                 required: true,
                 hint: ("#{@minimum_password_length} caracteres mínimos" if @minimum_password_length),
                 input_html: { autocomplete: "Nova Senha" } %>
     <%= f.input :password_confirmation,
+                label: 'Confirme a senha:',
                 required: true,
                 input_html: { autocomplete: "Nova Senha" } %>
   </div>

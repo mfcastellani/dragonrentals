@@ -5,20 +5,23 @@
 
   <div class="form-inputs">
     
-<%= f.input :username %><%= f.input :email, required: true, autofocus: true %>
+<%= f.input :username, label: 'Nome do usuário:' %><%= f.input :email, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Atualmente aguardando confirmação para: <%= resource.unconfirmed_email %></p>
     <% end %>
 
     <%= f.input :password,
+                label: 'senha:',
                 hint: "deixe em branco se não quiser mudar",
                 required: false,
                 input_html: { autocomplete: "Nova Senha" } %>
     <%= f.input :password_confirmation,
+                label: 'Confirme sua senha:',
                 required: false,
                 input_html: { autocomplete: "Nova Senha" } %>
     <%= f.input :current_password,
+                label: 'Senha atual:',
                 hint: "precisamos de sua senha atual para confirmar suas alterações",
                 required: true,
                 input_html: { autocomplete: "Senha atual" } %>
