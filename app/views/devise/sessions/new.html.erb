@@ -7,6 +7,7 @@
                 autofocus: true,
                 input_html: { autocomplete: "login" } %>
     <%= f.input :password,
+                label: 'Senha:',
                 required: false,
                 input_html: { autocomplete: "Senha atual" } %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
