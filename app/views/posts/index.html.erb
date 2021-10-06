@@ -3,14 +3,14 @@
   <div class="container">
     <div class="card">        
         <d class="card-body">
-          <h5 class="card-title text-center">Posts
+          <h5 class="card-title text-center">Postagens
           </h5>
-          <%= link_to 'New Post', new_post_path, class:"btn btn-success float-end" %>
+          <%= link_to 'Nova Postagem', new_post_path, class:"btn btn-success float-end" %>
           <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col">Title</th>
-                <th scope="col">Body</th>
+                <th scope="col">Título</th>
+                <th scope="col">Corpo do texto</th>
               </tr>
             </thead>
             <tbody>
@@ -18,9 +18,9 @@
                 <tr>
                   <td scope="row"><%= post.title %></td>
                   <td><%= post.body %></td>
-                  <td><%= link_to 'Show', post %></td>
-                  <td><%= link_to 'Edit', edit_post_path(post) %></td>
-                  <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <td><%= link_to 'Mostrar', post %></td>
+                  <td><%= link_to 'Editar', edit_post_path(post) %></td>
+                  <td><%= link_to 'Deletar', post, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
                 </tr>
               <% end %>
             </tbody>
