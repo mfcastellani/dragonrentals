@@ -9,14 +9,8 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <%= render 'layouts/navbar' %>
   <body>
-    
-<h1>DRAGON RENTALS UHUU</h1>
-
-<%= Time.now %>
-
-<%= render 'layouts/navbar' %>
 <%= yield %>
   </body>
 </html>
