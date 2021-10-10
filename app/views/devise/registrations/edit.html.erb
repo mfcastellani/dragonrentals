@@ -1,39 +1,72 @@
-<h2>Editar <%= resource_name.to_s.humanize %></h2>
+  <div class="container mt-4">
+    <div class="mt-2 d-flex justify-content-center">
+      <h3>Editar dados de <%= current_user.username %></h3>
+    </div>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
+      
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p>Atualmente aguardando confirmação para: <%= resource.unconfirmed_email %></p>
+      <% end %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+    <div class="row mt-2 d-flex justify-content-center">
+      <div class="col-md-4">
+        <%= f.input :username, label: 'Nome do usuário', class: 'form-control'%>
+      </div> 
+    </div>
 
-  <div class="form-inputs">
-    
-<%= f.input :username, label: 'Nome do usuário:' %><%= f.input :email, required: true, autofocus: true %>
+    <div class="row mt-2 d-flex justify-content-center">
+      <div class="col-md-4">
+        <%= f.input :email, required: true, autofocus: true, class: 'form-control '%>
+      </div>
+    </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Atualmente aguardando confirmação para: <%= resource.unconfirmed_email %></p>
-    <% end %>
+      <div class="row mt-2 d-flex justify-content-center">
+        <div class="col-md-4">
+          <%= f.input :password,
+            label: 'Senha:',
+            placeholder: "Deixe em branco se não quiser mudar",
+            required: false,
+            input_html: { autocomplete: "Nova Senha" } %>
+        </div>
+      </div>
 
-    <%= f.input :password,
-                label: 'senha:',
-                hint: "deixe em branco se não quiser mudar",
-                required: false,
-                input_html: { autocomplete: "Nova Senha" } %>
-    <%= f.input :password_confirmation,
-                label: 'Confirme sua senha:',
-                required: false,
-                input_html: { autocomplete: "Nova Senha" } %>
-    <%= f.input :current_password,
-                label: 'Senha atual:',
-                hint: "precisamos de sua senha atual para confirmar suas alterações",
-                required: true,
-                input_html: { autocomplete: "Senha atual" } %>
-  </div>
+      <div class="row mt-2 d-flex justify-content-center">
+        <div class="col-md-4">
+          <%= f.input :password_confirmation,
+            label: 'Confirme sua senha:',
+            placeholder: "Deixe em branco se não quiser mudar",
+            required: false,
+            input_html: { autocomplete: "Nova Senha" } %>
+        </div>
+      </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Atualizar" %>
+      <div class="row mt-2 d-flex justify-content-center">
+        <div class="col-md-4">
+          <%= f.input :current_password,
+            label: 'Senha atual:',
+            placeholder: "Para confirmar as alterações digite sua senha",
+            required: true,
+            input_html: { autocomplete: "Senha atual:" } %>
+        </div>
+      </div>
+
+      <div class="row mt-4 d-flex justify-content-center"> 
+        <div class="col-md-1">
+          <%= f.button :submit, "Atualizar", class: 'btn btn-success' %>
+        </div>
+      </div>
+
+      <div class="row mt-4 d-flex justify-content-center">
+        <div class="col-md-2 ms-4">
+          <%= link_to "Cancelar conta", registration_path(resource_name), class: 'btn btn-danger', data: { confirm: "Tem certeza?" }, method: :delete %>
+        </div> 
+      </div>
+
+      <div class="mt-1 d-flex justify-content-center">
+        <%= link_to "Cancelar", :back %>
+      </div>
+    </div> 
+
   </div>
 <% end %>
-
-<h3>Cancelar minha conta</h3>
-
-<p>Infeliz? <%= link_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?" }, method: :delete %></p>
-
-<%= link_to "Voltar", :back %>

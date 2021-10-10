@@ -2,44 +2,37 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
+
     <a class="navbar-brand">
-    <img src="https://img.icons8.com/color/48/000000/the-dragon-team.png" width="30" height="25" class="d-inline-block align-text-top" />
-    Dragon Rentals
+        <img src="https://img.icons8.com/color/48/000000/the-dragon-team.png" width="30" height="25" class="d-inline-block align-text-top" />
+        Dragon Rentals
     </a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
-            <li class="nav-item active">
                 <%= link_to "Home", root_path, class:"nav-link" %>
-            </li>
-            <li class="nav-item">
                 <%= link_to "Posts", posts_path, class:"nav-link" %>
-            </li>
-            <li class="nav-item">
                 <%= link_to "Dragões", dragons_path, class:"nav-link" %>
-            </li>
         </ul>
-        <ul class="navbar-nav ms-auto">
+
+        <div class="m ">
+          
+        </div>
             <% if current_user %>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="nav-item dropdown ms-auto me-4">
+                  <button class="btn dropdown-toggle nav-link" type="button" id="navbarDropdown" data-bs-toggle="dropdown" >
                     <%= current_user.username %>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <%= link_to "Account Settings", edit_user_registration_path, class:"dropdown-item" %>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <%= link_to "Alterar dados", edit_user_registration_path, class:"dropdown-item pe-1" %>
                     <div class="dropdown-divider"></div>
-                    <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+                    <%= link_to "Sair", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+                  </ul>
                 </div>
-            </li>
             <% else %>
-            <li class="nav-item">
-                <%= link_to "Create An Account", new_user_registration_path, class:"nav-link" %>
-            </li>
-            <li class="nav-item">
+                <%= link_to "Criar conta", new_user_registration_path, class:"nav-link" %>
                 <%= link_to "Login", new_user_session_path, class:"nav-link" %>
-            </li>
             <% end %>
-            
-        </ul>
+
     </div>
 </nav>
