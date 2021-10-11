@@ -4,27 +4,27 @@
     </div>
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
-      
+
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Atualmente aguardando confirmação para: <%= resource.unconfirmed_email %></p>
       <% end %>
 
     <div class="row mt-2 d-flex justify-content-center">
       <div class="col-md-4">
-        <%= f.input :username, label: 'Nome do usuário', class: 'form-control'%>
-      </div> 
+        <%= f.input :username, label: "Nome do usuário", class: "form-control" %>
+      </div>
     </div>
 
     <div class="row mt-2 d-flex justify-content-center">
       <div class="col-md-4">
-        <%= f.input :email, required: true, autofocus: true, class: 'form-control '%>
+        <%= f.input :email, required: true, autofocus: true, class: 'form-controli' %>
       </div>
     </div>
 
       <div class="row mt-2 d-flex justify-content-center">
         <div class="col-md-4">
           <%= f.input :password,
-            label: 'Senha:',
+            label: "Senha:",
             placeholder: "Deixe em branco se não quiser mudar",
             required: false,
             input_html: { autocomplete: "Nova Senha" } %>
@@ -51,22 +51,16 @@
         </div>
       </div>
 
-      <div class="row mt-4 d-flex justify-content-center"> 
-        <div class="col-md-1">
-          <%= f.button :submit, "Atualizar", class: 'btn btn-success' %>
+      <div class="row mt-4 d-flex justify-content-center">
+        <div class="col-md-4 text-center">
+          <%= link_to "Cancelar operação", :back, class: "btn btn-secondary" %>
+          <%= f.button :submit, "Atualizar", class: "btn btn-success ms-4" %>
+
+          <div class="mt-4">
+            <%= link_to "Cancelar conta", registration_path(resource_name), class: 'btn btn-danger', data: { confirm: "Tem certeza?" }, method: :delete %>
+          </div>
         </div>
       </div>
-
-      <div class="row mt-4 d-flex justify-content-center">
-        <div class="col-md-2 ms-4">
-          <%= link_to "Cancelar conta", registration_path(resource_name), class: 'btn btn-danger', data: { confirm: "Tem certeza?" }, method: :delete %>
-        </div> 
-      </div>
-
-      <div class="mt-1 d-flex justify-content-center">
-        <%= link_to "Cancelar", :back %>
-      </div>
-    </div> 
-
+    </div>
   </div>
 <% end %>
