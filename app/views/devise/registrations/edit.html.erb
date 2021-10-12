@@ -1,72 +1,65 @@
-  <div class="container mt-4">
-    <div class="mt-2 d-flex justify-content-center">
-      <h3>Editar dados de <%= current_user.username %></h3>
-    </div>
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= f.error_notification %>
-      
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <p>Atualmente aguardando confirmação para: <%= resource.unconfirmed_email %></p>
-      <% end %>
-
-    <div class="row mt-2 d-flex justify-content-center">
-      <div class="col-md-4">
-        <%= f.input :username, label: 'Nome do usuário', class: 'form-control'%>
-      </div> 
-    </div>
-
-    <div class="row mt-2 d-flex justify-content-center">
-      <div class="col-md-4">
-        <%= f.input :email, required: true, autofocus: true, class: 'form-control '%>
-      </div>
-    </div>
-
-      <div class="row mt-2 d-flex justify-content-center">
-        <div class="col-md-4">
-          <%= f.input :password,
-            label: 'Senha:',
-            placeholder: "Deixe em branco se não quiser mudar",
-            required: false,
-            input_html: { autocomplete: "Nova Senha" } %>
-        </div>
-      </div>
-
-      <div class="row mt-2 d-flex justify-content-center">
-        <div class="col-md-4">
-          <%= f.input :password_confirmation,
-            label: 'Confirme sua senha:',
-            placeholder: "Deixe em branco se não quiser mudar",
-            required: false,
-            input_html: { autocomplete: "Nova Senha" } %>
-        </div>
-      </div>
-
-      <div class="row mt-2 d-flex justify-content-center">
-        <div class="col-md-4">
-          <%= f.input :current_password,
-            label: 'Senha atual:',
-            placeholder: "Para confirmar as alterações digite sua senha",
-            required: true,
-            input_html: { autocomplete: "Senha atual:" } %>
-        </div>
-      </div>
-
-      <div class="row mt-4 d-flex justify-content-center"> 
-        <div class="col-md-1">
-          <%= f.button :submit, "Atualizar", class: 'btn btn-success' %>
-        </div>
-      </div>
-
-      <div class="row mt-4 d-flex justify-content-center">
-        <div class="col-md-2 ms-4">
-          <%= link_to "Cancelar conta", registration_path(resource_name), class: 'btn btn-danger', data: { confirm: "Tem certeza?" }, method: :delete %>
-        </div> 
-      </div>
-
-      <div class="mt-1 d-flex justify-content-center">
-        <%= link_to "Cancelar", :back %>
-      </div>
-    </div> 
-
+<div class="container mt-4">
+  <div class="mt-2 d-flex justify-content-center">
+    <h3>Editar dados de <%= current_user.username %></h3>
   </div>
-<% end %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= f.error_notification %>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <p>Atualmente aguardando confirmação para: <%= resource.unconfirmed_email %></p>
+  <% end %>
+
+  <div class="row mt-2 d-flex justify-content-center">
+  <div class="col-md-4">
+    <%= f.input :username, label: "Nome do usuário", class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row mt-2 d-flex justify-content-center">
+    <div class="col-md-4">
+      <%= f.input :email, required: true, autofocus: true, class: 'form-controli' %>
+    </div>
+  </div>
+
+  <div class="row mt-2 d-flex justify-content-center">
+    <div class="col-md-4">
+      <%= f.input :password,
+        label: "Senha:",
+        placeholder: "Deixe em branco se não quiser mudar",
+        required: false,
+        input_html: { autocomplete: "Nova Senha" } %>
+    </div>
+  </div>
+
+  <div class="row mt-2 d-flex justify-content-center">
+    <div class="col-md-4">
+      <%= f.input :password_confirmation,
+        label: 'Confirme sua senha:',
+        placeholder: "Deixe em branco se não quiser mudar",
+        required: false,
+        input_html: { autocomplete: "Nova Senha" } %>
+      </div>
+  </div>
+
+  <div class="row mt-2 d-flex justify-content-center">
+    <div class="col-md-4">
+      <%= f.input :current_password,
+        label: 'Senha atual:',
+        placeholder: "Para confirmar as alterações digite sua senha",
+        required: true,
+        input_html: { autocomplete: "Senha atual:" } %>
+    </div>
+  </div>
+
+  <div class="row mt-4 d-flex justify-content-center">
+    <div class="col-md-4 text-center">
+      <%= link_to "Cancelar operação", :back, class: "btn btn-secondary rounded-pill" %>
+      <%= f.button :submit, "Atualizar", class: "btn btn-success ms-4 rounded-pill" %>
+
+      <div class="mt-4">
+        <%= link_to "Cancelar conta", registration_path(resource_name), class: 'btn btn-danger rounded-pill', data: { confirm: "Tem certeza?" }, method: :delete %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
